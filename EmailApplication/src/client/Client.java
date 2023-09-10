@@ -18,17 +18,25 @@ public class Client {
             String userInput;
 
             while (true) {
-                System.out.print("Enter a message (QUIT to exit): ");
+                System.out.print("Enter a message (QUIT to exit, LIST to list clients): ");
                 userInput = consoleIn.readLine();
 
                 if (userInput == null || userInput.equalsIgnoreCase("QUIT")) {
                     break;
-                }
+                } else if (userInput.equalsIgnoreCase("LIST")){
+                    out.println("LIST");
+                    //String response = in.readLine();
+                    //System.out.println(response);
+                    String response;
+                    while(!(response = in.readLine()).isEmpty()){
+                        System.out.println(response);
+                    }
+                }else{
 
                 out.println(userInput);
                 String response = in.readLine();
                 System.out.println("Server response: " + response);
-            }
+            }}
 
             System.out.println("Connection closed.");
         } catch (IOException e) {
